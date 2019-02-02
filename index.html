@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Bill inventory</title>
+</head>
+
+<body>
+  <div id="root">
+    <section id="billInventory">
+      <h2>Bills</h2>
+      <section id="billForm">
+        <h3>Add Bill</h3>
+        <form>
+          <div class="billForm__wrapper">
+            <label for="billForm__Name">
+              Name
+              <input type="text" name="billForm__Name" id="billForm__Name" maxlength="42">
+            </label>
+            <label for="billForm__Amount">
+              Amount
+              <input type="number" name="billForm__Amount" id="billForm__Amount" min="0">
+            </label>
+          </div>
+          <div class="billForm__wrapper">
+            <label for="billForm__Date">
+              Date
+              <input type="date" name="billForm__Date" id="billForm__Date">
+            </label>
+            <label for="billForm__Type">
+              Type
+              <select name="billForm__Type" id="billForm__Type">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </label>
+          </div>
+          <div class="billForm__wrapper">
+            <input type="reset" value="Reset">
+            <input type="button" value="Save">
+          </div>
+        </form>
+      </section>
+      <section id="billTable">
+        <h3>All Bills</h3>
+        <table id="billTable__table">
+          <tr>
+            <th>
+              <button>Name</button>
+            </th>
+            <th>
+              <button>Type</button>
+            </th>
+            <th>
+              Date
+            </th>
+            <th>
+              <button>Amount</button>
+            </th>
+          </tr>
+          <div id="billTable__data">
+          </div>
+        </table>
+      </section>
+      <section id="billSumatories">
+        <h4>
+          Bills A:
+          <span id="billSumatoriesA">0</span>
+        </h4>
+        <h4>
+          Bills B:
+          <span id="billSumatoriesB">0</span>
+        </h4>
+        <h4>
+          Bills C:
+          <span id="billSumatoriesC">0</span>
+        </h4>
+      </section>
+    </section>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
