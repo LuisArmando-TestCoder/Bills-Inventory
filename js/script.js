@@ -18,9 +18,26 @@
     buttonAmountElem: document.getElementById('billTable_amount'),
     divDataElem: document.getElementById('billTable__data'),
   };
-  let sumatoriesElem = { // meant to add more elem programmatically
-    sectionParent: document.getElementById('billSumatories'),
+  const summationElem = {
+    sectionParent: document.getElementById('billSummation'),
   };
+  function updateSummation() {
+    summationElem.sectionParent.innerHTML = '';
+    for (const option of formElem.input.TypeElem.children) {
+      const h4 = document.createElement('h4');
+      const span = document.createElement('span');
+      let summation = 0;
+      h4.innerText = `${option.innerText}: `;
+      for (const i of dataTableArray) {
+        if (i.type === option.innerText) {
+          summation += Math.floor(i.amount);
+        }
+      }
+      span.innerText = summation;
+      h4.appendChild(span);
+      summationElem.sectionParent.appendChild(h4);
+    }
+  }
   function createNewTr(array) {
     tableElem.divDataElem.innerHTML = '';
     array.forEach((obj) => {
@@ -103,6 +120,7 @@
       // sort array first
       sortArray(dataTableArray).upByName();
       createNewTr(dataTableArray);
+      updateSummation();
     }
   }
   formElem.buttonSaveElem.addEventListener('click', saveFormToObj);
@@ -118,9 +136,9 @@
   -- The form reset button works
   -- The form automatically resets itself after submitting
   -- The table display correctly all the bills
-  The table sort by name, type and amount
+  -- The table sort by name, type and amount
   The sort is reversed for each sortable field
-  The total is correctly calculated and update when new bills are added
+  -- The total is correctly calculated and update when new bills are added
   -----Technical Requirements:
   -- IIFE (Immediately Invoked Function Expression) is used
   -- Named functions are used on event handler
