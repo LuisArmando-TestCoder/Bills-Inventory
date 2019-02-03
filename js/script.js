@@ -61,18 +61,11 @@
     }
   }
   function sortArray(array) {
-    function strAddition(str) {
-      let strCharSummationValue = str[0].charCodeAt();
-      for (let char = 1; char < str.length; char += 1) {
-        strCharSummationValue += str[char].charCodeAt() / 100;
-      }
-      return strCharSummationValue;
-    }
     function sortArrayUpByName() {
-      array.sort((a, b) => strAddition(a.name) - strAddition(b.name));
+      array.sort((a, b) => b.name.localeCompare(a.name));
     }
     function sortArrayDownByName() {
-      array.sort((a, b) => strAddition(b.name) - strAddition(a.name));
+      array.sort((a, b) => a.name.localeCompare(b.name));
     }
     function sortArrayUpByAmount() {
       array.sort((a, b) => Math.floor(a.amount) - Math.floor(b.amount));
@@ -81,10 +74,10 @@
       array.sort((a, b) => Math.floor(b.amount) - Math.floor(a.amount));
     }
     function sortArrayUpByType() {
-      array.sort((a, b) => a.name.charCodeAt() - b.name.charCodeAt());
+      array.sort((a, b) => a.type.localeCompare(b.type));
     }
     function sortArrayDownByType() {
-      array.sort((a, b) => b.name.charCodeAt() - a.name.charCodeAt());
+      array.sort((a, b) => b.type.localeCompare(a.type));
     }
     return {
       upByName: sortArrayUpByName,
