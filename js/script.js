@@ -1,8 +1,9 @@
 (function () {
+  let sortDirection = true;
   let dataTableArray = []; // eslint-disable-line
   // wanna keep it non const
   // to say be an empty [] if necessary
-  const formElem = {
+  const formObj = {
     input: {
       NameElem: document.getElementById('billForm__name'),
       AmountElem: document.getElementById('billForm__amount'),
@@ -12,7 +13,7 @@
     buttonResetElem: document.getElementById('billForm__reset'),
     buttonSaveElem: document.getElementById('billForm__save'),
   };
-  const tableElem = {
+  const tableObj = {
     buttonNameElem: document.getElementById('billTable_name'),
     buttonTypeElem: document.getElementById('billTable_type'),
     buttonAmountElem: document.getElementById('billTable_amount'),
@@ -23,7 +24,7 @@
   };
   function updateSummation() {
     summationElem.sectionParent.innerHTML = '';
-    for (const option of formElem.input.TypeElem.children) {
+    for (const option of formObj.input.TypeElem.children) {
       const h4 = document.createElement('h4');
       const span = document.createElement('span');
       let summation = 0;
@@ -39,7 +40,7 @@
     }
   }
   function createNewTr(array) {
-    tableElem.divDataElem.innerHTML = '';
+    tableObj.divDataElem.innerHTML = '';
     array.forEach((obj) => {
       const tr = document.createElement('tr');
       for(let i in obj) { // eslint-disable-line
@@ -48,18 +49,18 @@
         td.setAttribute('data-bill-type', i);
         tr.appendChild(td);
       }
-      tableElem.divDataElem.appendChild(tr);
+      tableObj.divDataElem.appendChild(tr);
     });
   }
   function watchInputsValues() {
-    for (const elem in formElem.input) { // eslint-disable-line
-      formElem.input[elem].className = '';
-      if (!formElem.input[elem].value) {
-        formElem.input[elem].className = 'unfilled';
+    for (const elem in formObj.input) { // eslint-disable-line
+      formObj.input[elem].className = '';
+      if (!formObj.input[elem].value) {
+        formObj.input[elem].className = 'unfilled';
       }
     }
   }
-  function sortArray(arr) {
+  function sortArray(array) {
     function strAddition(str) {
       let strCharSummationValue = str[0].charCodeAt();
       for (let char = 1; char < str.length; char += 1) {
@@ -68,22 +69,22 @@
       return strCharSummationValue;
     }
     function sortArrayUpByName() {
-      arr.sort((a, b) => strAddition(a.name) - strAddition(b.name));
+      array.sort((a, b) => strAddition(a.name) - strAddition(b.name));
     }
     function sortArrayDownByName() {
-      arr.sort((a, b) => strAddition(b.name) - strAddition(a.name));
+      array.sort((a, b) => strAddition(b.name) - strAddition(a.name));
     }
     function sortArrayUpByAmount() {
-      arr.sort((a, b) => a.amount - b.amount);
+      array.sort((a, b) => Math.floor(a.amount) - Math.floor(b.amount));
     }
     function sortArrayDownByAmount() {
-      arr.sort((a, b) => b.amount - b.amount);
+      array.sort((a, b) => Math.floor(b.amount) - Math.floor(a.amount));
     }
     function sortArrayUpByType() {
-      arr.sort((a, b) => a.name.charCodeAt() - b.name.charCodeAt());
+      array.sort((a, b) => a.name.charCodeAt() - b.name.charCodeAt());
     }
     function sortArrayDownByType() {
-      arr.sort((a, b) => b.name.charCodeAt() - a.name.charCodeAt());
+      array.sort((a, b) => b.name.charCodeAt() - a.name.charCodeAt());
     }
     return {
       upByName: sortArrayUpByName,
@@ -94,27 +95,41 @@
       downByType: sortArrayDownByType,
     };
   }
+  function sortTable(str) {
+    function sortBy() {
+      sortDirection = !sortDirection;
+      if (sortDirection) {
+        sortArray(dataTableArray)[`up${str}`]();
+      } else {
+        sortArray(dataTableArray)[`down${str}`]();
+      }
+      createNewTr(dataTableArray);
+    }
+    return {
+      by: sortBy,
+    };
+  }
   function resetForm() {
-    formElem.input.NameElem.value = '';
-    formElem.input.AmountElem.value = '';
-    formElem.input.DateElem.value = '';
-    formElem.input.TypeElem.value = '';
+    formObj.input.NameElem.value = '';
+    formObj.input.AmountElem.value = '';
+    formObj.input.DateElem.value = '';
+    formObj.input.TypeElem.value = '';
   }
   function saveFormToObj(e) {
     e.preventDefault();
-    if (!(formElem.input.AmountElem.value
-      && formElem.input.NameElem.value
-      && formElem.input.TypeElem.value
-      && formElem.input.DateElem.value)) {
+    if (!(formObj.input.AmountElem.value
+      && formObj.input.NameElem.value
+      && formObj.input.TypeElem.value
+      && formObj.input.DateElem.value)) {
       // change class to unfilled if necessary
       watchInputsValues();
     } else {
       watchInputsValues();
       dataTableArray.push({
-        name: formElem.input.NameElem.value,
-        type: formElem.input.TypeElem.value,
-        date: formElem.input.DateElem.value,
-        amount: formElem.input.AmountElem.value,
+        name: formObj.input.NameElem.value,
+        type: formObj.input.TypeElem.value,
+        date: formObj.input.DateElem.value,
+        amount: formObj.input.AmountElem.value,
       });
       resetForm();
       // sort array first
@@ -123,8 +138,11 @@
       updateSummation();
     }
   }
-  formElem.buttonSaveElem.addEventListener('click', saveFormToObj);
-  formElem.buttonResetElem.addEventListener('click', resetForm);
+  formObj.buttonSaveElem.addEventListener('click', saveFormToObj);
+  formObj.buttonResetElem.addEventListener('click', resetForm);
+  tableObj.buttonNameElem.addEventListener('click', sortTable('ByName').by);
+  tableObj.buttonTypeElem.addEventListener('click', sortTable('ByType').by);
+  tableObj.buttonAmountElem.addEventListener('click', sortTable('ByAmount').by);
 }());
 
 /**
@@ -137,7 +155,7 @@
   -- The form automatically resets itself after submitting
   -- The table display correctly all the bills
   -- The table sort by name, type and amount
-  The sort is reversed for each sortable field
+  -- The sort is reversed for each sortable field
   -- The total is correctly calculated and update when new bills are added
   -----Technical Requirements:
   -- IIFE (Immediately Invoked Function Expression) is used
