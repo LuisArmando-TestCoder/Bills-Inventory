@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"style.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/settings/_reset.scss","../scss/partials/_form.scss"],"names":[],"mappings":"AAIA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAaE;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;AAAA;EAEE;EACA;;;AAEF;EACE;EACA;;;AC7CF;EACI","file":"style.css"}

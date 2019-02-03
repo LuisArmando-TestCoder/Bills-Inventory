@@ -7,6 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/styles.css">
   <title>Bill inventory</title>
+  <style>
+    .unfilled {
+      --red: #f00;
+      border: 1px solid var(--red);
+    }
+  </style>
 </head>
 
 <body>
@@ -17,23 +23,23 @@
         <h3>Add Bill</h3>
         <form>
           <div class="billForm__wrapper">
-            <label for="billForm__Name">
+            <label for="billForm__name">
               Name
-              <input type="text" name="billForm__Name" id="billForm__Name" maxlength="42">
+              <input placeholder="Bill name" type="text" name="billForm__name" id="billForm__name" maxlength="21">
             </label>
-            <label for="billForm__Amount">
+            <label for="billForm__amount">
               Amount
-              <input type="number" name="billForm__Amount" id="billForm__Amount" min="0">
+              <input placeholder="Bill Amount" type="number" name="billForm__amount" id="billForm__amount" min="0">
             </label>
           </div>
           <div class="billForm__wrapper">
-            <label for="billForm__Date">
+            <label for="billForm__date">
               Date
-              <input type="date" name="billForm__Date" id="billForm__Date">
+              <input type="date" name="billForm__date" id="billForm__date">
             </label>
-            <label for="billForm__Type">
+            <label for="billForm__type">
               Type
-              <select name="billForm__Type" id="billForm__Type">
+              <select name="billForm__type" id="billForm__type">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -41,8 +47,8 @@
             </label>
           </div>
           <div class="billForm__wrapper">
-            <input type="reset" value="Reset">
-            <input type="button" value="Save">
+            <input type="reset" value="Reset" id="billForm__reset">
+            <input type="submit" value="Save" id="billForm__save">
           </div>
         </form>
       </section>
@@ -51,24 +57,24 @@
         <table id="billTable__table">
           <tr>
             <th>
-              <button>Name</button>
+              <button id="billTable_name">Name</button>
             </th>
             <th>
-              <button>Type</button>
+              <button id="billTable_type">Type</button>
             </th>
             <th>
               Date
             </th>
             <th>
-              <button>Amount</button>
+              <button id="billTable_amount">Amount</button>
             </th>
           </tr>
-          <div id="billTable__data">
-          </div>
+          <tbody id="billTable__data">
+          </tbody>
         </table>
       </section>
       <section id="billSumatories">
-        <h4>
+        <!-- <h4>
           Bills A:
           <span id="billSumatoriesA">0</span>
         </h4>
@@ -79,7 +85,7 @@
         <h4>
           Bills C:
           <span id="billSumatoriesC">0</span>
-        </h4>
+        </h4> -->
       </section>
     </section>
   </div>
