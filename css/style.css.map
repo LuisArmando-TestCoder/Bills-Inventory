@@ -1,1 +1,7 @@
-{"version":3,"sourceRoot":"","sources":["../scss/settings/_reset.scss","../scss/partials/_form.scss"],"names":[],"mappings":"AAIA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAaE;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;EAEE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;EACE;;;AAEF;AAAA;EAEE;EACA;;;AAEF;EACE;EACA;;;AC7CF;EACI","file":"style.css"}
+{
+"version": 3,
+"mappings": "AAAA,KAAM;EACF,KAAK,EAAE,IAAI;;ACGf;;;;;;;;;;;;wBAYyB;EACvB,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,SAAS,EAAE,IAAI;EACf,IAAI,EAAE,OAAO;EACb,cAAc,EAAE,QAAQ;;AAG1B;0CAC2C;EACzC,OAAO,EAAE,KAAK;;AAEhB,IAAK;EACH,WAAW,EAAE,CAAC;;AAEhB,MAAO;EACL,UAAU,EAAE,IAAI;;AAElB,aAAc;EACZ,MAAM,EAAE,IAAI;;AAEd;iBACkB;EAChB,OAAO,EAAE,EAAE;EACX,OAAO,EAAE,IAAI;;AAEf,KAAM;EACJ,eAAe,EAAE,QAAQ;EACzB,cAAc,EAAE,CAAC;;AC7CnB,SAAU;EACR,MAAM,EAAE,cAAc;EACtB,SAAS,EAAE,+BAA+B;;AAE5C,gBAIC;EAHC,GAAI;IACF,MAAM,EAAE,cAAc",
+"sources": ["../scss/settings/_variables.scss","../scss/settings/_reset.scss","../scss/partials/_form.scss"],
+"names": [],
+"file": "style.css"
+}

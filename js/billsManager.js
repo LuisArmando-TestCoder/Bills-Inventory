@@ -1,8 +1,6 @@
 (function () {
   let sortDirection = true;
-  let dataTableArray = []; // eslint-disable-line
-  // wanna keep it non const
-  // to say be an empty [] if necessary
+  const dataTableArray = [];
   const formObj = {
     input: {
       NameElem: document.getElementById('billForm__name'),
@@ -43,7 +41,7 @@
     tableObj.divDataElem.innerHTML = '';
     array.forEach((obj) => {
       const tr = document.createElement('tr');
-      for(let i in obj) { // eslint-disable-line
+      for(let i in obj) {
         const td = document.createElement('td');
         td.innerText = obj[i];
         td.setAttribute('data-bill-type', i);
@@ -53,7 +51,7 @@
     });
   }
   function watchInputsValues() {
-    for (const elem in formObj.input) { // eslint-disable-line
+    for (const elem in formObj.input) {
       formObj.input[elem].className = '';
       if (!formObj.input[elem].value) {
         formObj.input[elem].className = 'unfilled';
@@ -122,7 +120,7 @@
         name: formObj.input.NameElem.value,
         type: formObj.input.TypeElem.value,
         date: formObj.input.DateElem.value,
-        amount: formObj.input.AmountElem.value,
+        amount: Math.abs(formObj.input.AmountElem.value),
       });
       resetForm();
       // sort array first
