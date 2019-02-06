@@ -55,7 +55,7 @@
       formObj.input[elem].className = '';
       if (!formObj.input[elem].value) {
         formObj.input[elem].className = 'unfilled';
-      }
+      }0
     }
   }
   function sortArray(array) {

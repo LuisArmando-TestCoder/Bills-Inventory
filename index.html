@@ -19,11 +19,11 @@
           <div class="billForm__wrapper">
             <label for="billForm__name">
               Name
-              <input placeholder="Bill name" type="text" name="billForm__name" id="billForm__name" maxlength="16">
+              <input placeholder="Bill name" type="text" name="billForm__name" id="billForm__name" maxlength="8">
             </label>
             <label for="billForm__amount">
               Amount
-              <input placeholder="Bill Amount" type="number" name="billForm__amount" id="billForm__amount" max="999999999" min="0">
+              <input placeholder="Bill Amount" type="number" name="billForm__amount" id="billForm__amount" max="999999" min="0">
             </label>
           </div>
           <div class="billForm__wrapper">
@@ -46,29 +46,32 @@
           </div>
         </form>
       </section>
-      <section id="billTable">
-        <h3>All Bills</h3>
-        <table id="billTable__table">
-          <tr>
-            <th>
-              <button id="billTable_name">Name</button>
-            </th>
-            <th>
-              <button id="billTable_type">Type</button>
-            </th>
-            <th>
-              Date
-            </th>
-            <th>
-              <button id="billTable_amount">Amount</button>
-            </th>
-          </tr>
-          <tbody id="billTable__data">
-          </tbody>
-        </table>
+      <section id="info">
+        <section id="billTable">
+          <h3>All Bills</h3>
+          <table id="billTable__table">
+            <tr>
+              <th>
+                <button id="billTable_name">Name</button>
+              </th>
+              <th>
+                <button id="billTable_type">Type</button>
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                <button id="billTable_amount">Amount</button>
+              </th>
+            </tr>
+            <tbody id="billTable__data">
+            </tbody>
+          </table>
+        </section>
+        <section id="billSummation">
+        </section>
       </section>
-      <section id="billSummation">
-      </section>
+      
     </section>
   </div>
   <script src="js/billsManager.js"></script>
