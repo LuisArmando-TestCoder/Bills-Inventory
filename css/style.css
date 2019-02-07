@@ -1,7 +1,6 @@
 @font-face {
-  font-family: "AvenirNext";
-  src: url("../fonts/AvenirNext_Variable.ttf");
-}
+  font-family: 'AvenirNext';
+  src: url("../fonts/AvenirNext_Variable.ttf"); }
 :root {
   --red: #f99333;
   --gray: #333;
@@ -9,18 +8,14 @@
   --lightGray2: #aaa;
   --white: #fff;
   --size: 50px;
-}
+  --sizeClickableBall: 10px; }
 
 @keyframes alert {
   from {
-    border: 1px solid var(--red);
-  }
-}
+    border: 1px solid var(--red); } }
 @keyframes lookAtThis {
   50% {
-    text-shadow: 0px -2px 0px var(--gray);
-  }
-}
+    text-shadow: 0px -2px 0px var(--gray); } }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -39,72 +34,58 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
-}
+  display: block; }
 
 body {
-  line-height: 1;
-}
+  line-height: 1; }
 
 ol, ul {
-  list-style: none;
-}
+  list-style: none; }
 
 blockquote, q {
-  quotes: none;
-}
+  quotes: none; }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: "";
-  content: none;
-}
+  content: '';
+  content: none; }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  border-spacing: 0; }
 
 body, input, button {
-  font-family: "AvenirNext";
-}
+  font-family: 'AvenirNext'; }
 
 h3 {
   margin-top: 100px;
-  font-size: 24px;
-}
+  font-size: 24px; }
 
 label {
   font-size: 20px;
-  display: contents;
-}
+  display: contents; }
 
 input, select {
   font-size: 20px;
   max-width: 500px;
   padding: 5px;
   color: var(--gray);
-  border: 1px solid var(--gray);
-}
+  border: 1px solid var(--gray); }
 
 input:not(#billForm__reset), select {
-  margin: 0 0 50px 20px;
-}
+  margin: 0 0 50px 20px; }
 
 select {
   background: var(--white);
   border: 1px solid transparent;
-  max-width: 515px;
-}
+  max-width: 515px; }
 
 form {
-  margin: 60px 0;
-}
+  margin: 60px 0; }
 
 #summationTableWrapper {
   transition: 1s;
@@ -115,71 +96,59 @@ form {
   box-shadow: 0 0 3vh -1vh var(--gray);
   left: -100%;
   background: #fff;
-  width: 100%;
-}
-#summationTableWrapper #billTable, #summationTableWrapper #billSummation {
-  margin: auto;
-  max-width: 960px;
-  padding: 0 20px;
-}
-#summationTableWrapper:after {
-  --size: 100px;
-  content: "!";
-  font-size: 42px;
-  line-height: 2.5;
-  text-align: center;
-  position: absolute;
-  width: var(--size);
-  height: var(--size);
-  background: #fff;
-  z-index: -1;
-  border-radius: 0 50% 50% 0;
-  box-shadow: 1vh 0 3vh -2vh var(--gray);
-  right: calc(var(--size) * -1);
-  top: 0;
-  opacity: 0.5;
-  animation: lookAtThis 0.75s ease-in-out infinite;
-}
-#summationTableWrapper:hover {
-  cursor: pointer;
-}
+  width: 100%; }
+  #summationTableWrapper #billTable, #summationTableWrapper #billSummation {
+    margin: auto;
+    max-width: 960px;
+    padding: 0 20px; }
+  #summationTableWrapper:after {
+    --size: 100px;
+    content: '!';
+    font-size: 42px;
+    line-height: 2.5;
+    text-align: center;
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    background: #fff;
+    z-index: -1;
+    border-radius: 0 50% 50% 0;
+    box-shadow: 1vh 0 3vh -2vh var(--gray);
+    right: calc(var(--size) * -1);
+    top: 0;
+    opacity: 0.5;
+    animation: lookAtThis 0.75s ease-in-out infinite; }
+  #summationTableWrapper:hover {
+    cursor: pointer; }
 
 #summationTableWrapper.show {
-  left: 0%;
-}
-#summationTableWrapper.show:after {
-  content: "X";
-  border-radius: 50% 0 0 50%;
-  box-shadow: -1vh 0 2vh -1vh var(--gray);
-  right: 0;
-  animation: lookAtThis 5s ease-in-out infinite;
-}
+  left: 0%; }
+  #summationTableWrapper.show:after {
+    content: 'X';
+    border-radius: 50% 0 0 50%;
+    box-shadow: -1vh 0 2vh -1vh var(--gray);
+    right: 0;
+    animation: lookAtThis 5s ease-in-out infinite; }
 
 .unfilled {
-  animation: alert 0.75s ease-in-out infinite;
-}
+  animation: alert 0.75s ease-in-out infinite; }
 
 #billInventory {
   max-width: 960px;
   padding: 20px;
-  margin: auto;
-}
+  margin: auto; }
 
 #billInventory h2 {
-  font-size: 40px;
-}
+  font-size: 40px; }
 
 #billForm__type {
-  transition: 0.15s;
-}
-#billForm__type:hover {
-  background: var(--lightGray);
-}
+  transition: 0.15s; }
+  #billForm__type:hover {
+    background: var(--lightGray); }
 
 .billForm__wrapper {
   display: grid;
-  grid-template-columns: 100px 1fr;
-}
+  grid-template-columns: 100px 1fr; }
 
 .callToAction {
   padding: 5px;
@@ -187,93 +156,77 @@ form {
   color: var(--white);
   background: var(--gray);
   border: 1px solid var(--white);
-  transition: 0.15s;
-}
-.callToAction:hover {
-  cursor: pointer;
-  color: var(--gray);
-  background: var(--white);
-  border: 1px solid var(--gray);
-}
+  transition: 0.15s; }
+  .callToAction:hover {
+    cursor: pointer;
+    color: var(--gray);
+    background: var(--white);
+    border: 1px solid var(--gray); }
 
 #billTable__table {
   margin-top: 50px;
   text-align: left;
-  width: 100%;
-}
-#billTable__table tr:nth-child(2n) {
-  filter: brightness(0.9);
-}
-#billTable__table tr {
-  position: relative;
-}
-#billTable__table th {
-  z-index: 1;
-  background: var(--white);
-  padding: 15px 0;
-  position: sticky;
-  top: 25px;
-  box-shadow: 0 -25px var(--white);
-  color: var(--gray);
-  font-size: 20px;
-  font-variation-settings: "wght" 600;
-}
-#billTable__table button {
-  padding: 0;
-  color: var(--gray);
-  font-size: 20px;
-  font-variation-settings: "wght" 600;
-  background: transparent;
-  border: 0 solid #000;
-  position: relative;
-}
-#billTable__table button:after {
-  z-index: -1;
-  transition: 0.175s;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.35, 1.6);
-  display: block;
-  content: "";
-  width: 0px;
-  height: 0px;
-  padding: 20px;
-  background: var(--red);
-  border-radius: 50%;
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  transform: scale(1);
-}
-#billTable__table button:hover {
-  cursor: pointer;
-}
-#billTable__table button:hover:after {
-  transform: scale(1.25);
-}
-#billTable__table td {
-  padding: 15px;
-}
-#billTable__table td:nth-child(2n) {
-  color: var(--white);
-  background: var(--lightGray2);
-}
-#billTable__table td:nth-child(2n+1) {
-  color: var(--gray);
-  background: var(--lightGray);
-}
+  width: 100%; }
+  #billTable__table tr:nth-child(2n) {
+    filter: brightness(0.9); }
+  #billTable__table tr {
+    position: relative; }
+  #billTable__table th {
+    z-index: 1;
+    background: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 25px;
+    box-shadow: 0 -25px var(--white);
+    color: var(--gray);
+    font-size: 20px;
+    font-variation-settings: 'wght' 600; }
+  #billTable__table button {
+    padding: 0;
+    color: var(--gray);
+    font-size: 20px;
+    font-variation-settings: 'wght' 600;
+    background: transparent;
+    border: 0 solid #000;
+    position: relative; }
+    #billTable__table button:after {
+      z-index: -1;
+      transition: 0.175s;
+      transition-timing-function: cubic-bezier(0.25, 0.1, 0.35, 1.6);
+      display: block;
+      content: '';
+      width: 0px;
+      height: 0px;
+      padding: var(--sizeClickableBall);
+      background: var(--red);
+      border-radius: 50%;
+      position: absolute;
+      top: calc(var(--sizeClickableBall) * -1);
+      right: calc(var(--sizeClickableBall) * -1);
+      transform: scale(1); }
+    #billTable__table button:hover {
+      cursor: pointer; }
+      #billTable__table button:hover:after {
+        transform: scale(1.25); }
+  #billTable__table td {
+    padding: 15px; }
+  #billTable__table td:nth-child(2n) {
+    color: var(--white);
+    background: var(--lightGray2); }
+  #billTable__table td:nth-child(2n + 1) {
+    color: var(--gray);
+    background: var(--lightGray); }
 
 .tableWrapper {
   max-height: 320px;
-  overflow: auto;
-}
+  overflow: auto; }
 
 #billSummation h4 {
   font-size: 20px;
   padding: 10px 0;
   border-bottom: 3px solid var(--lightGray);
-  color: var(--gray);
-}
+  color: var(--gray); }
 #billSummation span {
-  float: right;
-}
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */
