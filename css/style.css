@@ -102,6 +102,7 @@ form {
     max-width: 960px;
     padding: 0 20px; }
   #summationTableWrapper:after {
+    transition: 1s;
     --size: 100px;
     content: '!';
     font-size: 42px;
