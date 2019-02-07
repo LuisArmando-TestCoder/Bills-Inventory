@@ -116,12 +116,13 @@
       watchInputsValues();
     } else {
       watchInputsValues();
-      dataTableArray.push({
+      const inputsObj = {
         name: formObj.input.NameElem.value,
         type: formObj.input.TypeElem.value,
         date: formObj.input.DateElem.value,
         amount: Math.abs(formObj.input.AmountElem.value),
-      });
+      }
+      dataTableArray.push(inputsObj);
       resetForm();
       // sort array first
       sortArray(dataTableArray).upByName();

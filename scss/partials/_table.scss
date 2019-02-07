@@ -9,12 +9,17 @@
         position: relative;
     }
     th {
-        padding-bottom: 10px;
+        z-index: 1;
+        background: var(--white);
+        padding: 15px 0;
+        position: sticky;
+        top: 25px;
+        box-shadow: 0 -25px var(--white);
         color: var(--gray);
         font-size: 20px;
         font-variation-settings: 'wght' 600;
     }
-    button {
+    button { 
         padding: 0;
         color: var(--gray);
         font-size: 20px;
@@ -31,7 +36,6 @@
             width: 0px;
             height: 0px;
             padding: 20px;
-            mix-blend-mode: difference;
             background: var(--red);
             border-radius: 50%;
             position: absolute;
@@ -57,4 +61,8 @@
         color: var(--gray);
         background: var(--lightGray);
     }
+}
+.tableWrapper {
+    max-height: 640px;
+    overflow: auto;
 }
