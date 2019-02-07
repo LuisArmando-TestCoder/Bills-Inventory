@@ -9,6 +9,12 @@
 #billInventory h2{
   font-size: 40px;
 }
+#billForm__type {
+  transition: 0.15s;
+  &:hover {
+    background: var(--lightGray);
+  }
+}
 .billForm__wrapper {
   display: grid;
   grid-template-columns: 100px 1fr;

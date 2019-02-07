@@ -3,3 +3,8 @@
     border: 1px solid var(--red);
   }
 }
+@keyframes lookAtThis {
+  50% {
+    text-shadow: 0px -2px 0px var(--gray);
+  }
+} 

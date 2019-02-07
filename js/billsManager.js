@@ -1,5 +1,6 @@
 (function () {
   let sortDirection = true;
+  let boolSummationTableWrapper = false;
   const dataTableArray = [];
   const formObj = {
     input: {
@@ -12,6 +13,7 @@
     buttonSaveElem: document.getElementById('billForm__save'),
   };
   const tableObj = {
+    summationTableWrapper: document.getElementById('summationTableWrapper'),
     buttonNameElem: document.getElementById('billTable_name'),
     buttonTypeElem: document.getElementById('billTable_type'),
     buttonAmountElem: document.getElementById('billTable_amount'),
@@ -20,6 +22,17 @@
   const summationElem = {
     sectionParent: document.getElementById('billSummation'),
   };
+  function showSummationTableWrapper(e) {
+    if (e.target === tableObj.summationTableWrapper
+      || tableObj.summationTableWrapper.className !== 'show') {
+      boolSummationTableWrapper = !boolSummationTableWrapper;
+      if (boolSummationTableWrapper) {
+        tableObj.summationTableWrapper.className = 'show';
+      } else {
+        tableObj.summationTableWrapper.className = '';
+      }
+    }
+  }
   function updateSummation() {
     summationElem.sectionParent.innerHTML = '';
     for (const option of formObj.input.TypeElem.children) {
@@ -128,6 +141,7 @@
       sortArray(dataTableArray).upByName();
       createNewTr(dataTableArray);
       updateSummation();
+      showSummationTableWrapper(e);
     }
   }
   formObj.buttonSaveElem.addEventListener('click', saveFormToObj);
@@ -135,4 +149,5 @@
   tableObj.buttonNameElem.addEventListener('click', sortTable('ByName').by);
   tableObj.buttonTypeElem.addEventListener('click', sortTable('ByType').by);
   tableObj.buttonAmountElem.addEventListener('click', sortTable('ByAmount').by);
+  tableObj.summationTableWrapper.addEventListener('click', showSummationTableWrapper);
 }());
